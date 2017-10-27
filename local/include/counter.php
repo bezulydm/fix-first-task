@@ -1,0 +1,1 @@
+<img src="<?=SITE_TEMPLATE_PATH?>/img/counter-1.png" height="31" width="88" alt="">
