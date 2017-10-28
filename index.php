@@ -1,6 +1,5 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetPageProperty("TITLE", "МБУ ДО \"СДЮСШОР\"");
 $APPLICATION->SetTitle("МБУ ДО \"СДЮСШОР\"");
 ?><? $APPLICATION->IncludeComponent(
     "bitrix:main.include",

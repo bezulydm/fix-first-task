@@ -2,49 +2,49 @@
 $aMenuLinks = Array(
 	Array(
 		"История школы", 
-		"/information/istoriya-shkoly/index.php", 
+		"/information/istoriya-shkoly/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Структура", 
-		"/information/struktura/index.php", 
+		"/information/struktura/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Образование", 
-		"/information/obrazovanie/index.php", 
+		"/information/obrazovanie/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Основные сведения", 
-		"/information/osnovnye-svedeniya/index.php", 
+		"/information/osnovnye-svedeniya/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Информация для зачисления", 
-		"/information/informatsiya-dlya-zachisleniya/index.php", 
+		"/information/informatsiya-dlya-zachisleniya/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Наши достижения", 
-		"/information/nashi-dostizheniya/index.php", 
+		"/information/nashi-dostizheniya/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Наши спортсмены", 
-		"/information/nashi-sportsmeny/index.php", 
+		"/information/nashi-sportsmeny/", 
 		Array(), 
 		Array(), 
 		"" 

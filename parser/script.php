@@ -79,38 +79,45 @@ class Script {
                         }
                         $data[$ELEMENT_NUMBER]["DETAIL"]["h3"]["TEXT"] = $value_pq->text();
                     }
-                }
-                $summary_string = "";
-                foreach ($data[$ELEMENT_NUMBER]["DETAIL"]["P"] as $element_p) {
-                    if (!empty($element_p["CONTEXT_IMG_LINK"])) {
-                        $summary_string .= "<p ";
-                        if (!empty($element_p["CONTEXT_STYLE"])) {
-                            $summary_string .= "style=\"";
-                            $summary_string .= $element_p['CONTEXT_STYLE'] . "\" >";
-                        } else  $summary_string .= ">";
-                        $summary_string .= "<img src =\" " . $element_p["CONTEXT_IMG_LINK"] . "\" ";
-                        if (!empty($element_p["CONTEXT_IMG_STYLE"])) {
-                            $summary_string .= "style = \" " . $element_p["CONTEXT_IMG_STYLE"] . "\" >";
-                        } else $summary_string .= " >";
-                        if (!empty($element_p["CONTEXT_P"])) $summary_string .= $element_p["CONTEXT_P"];
-                        $summary_string .= "</p>";
+                    if (strlen($data[$ELEMENT_NUMBER]["DETAIL"]['P'][0]['CONTEXT_P']) < 5 && count($data[$ELEMENT_NUMBER]["DETAIL"]['P'])==1
+                        &&  empty($data[$ELEMENT_NUMBER]["DETAIL"]['P'][0]['CONTEXT_IMG_SRC'])) {
+                        $pq_detail->find('img')->remove();
+                        $data[$ELEMENT_NUMBER]["DETAIL"]["TEXT"] = $pq_detail->html();
                     } else {
-                        $summary_string .= "<p ";
-                        if (!empty($element_p['CONTEXT_P_ALIGN'])) {
-                            $summary_string .= "align=\"";
-                            $summary_string .= $element_p['CONTEXT_P_ALIGN'] . "\" >";
-                            $summary_string .= $element_p["CONTEXT_P"] . "</p>";
-                        } elseif(!empty($element_p['CONTEXT_STYLE'])) {
-                            $summary_string .= "style=\"";
-                            $summary_string .= $element_p['CONTEXT_STYLE'] . "\" >";
-                            $summary_string .= $element_p["CONTEXT_P"] . "</p>";
-                        } else {
-                            $summary_string .= ">";
-                            $summary_string .= $element_p["CONTEXT_P"] . "</p>";
+                        $summary_string = "";
+                        foreach ($data[$ELEMENT_NUMBER]["DETAIL"]["P"] as $element_p) {
+                            if (!empty($element_p["CONTEXT_IMG_LINK"])) {
+                                $summary_string .= "<p ";
+                                if (!empty($element_p["CONTEXT_STYLE"])) {
+                                    $summary_string .= "style=\"";
+                                    $summary_string .= $element_p['CONTEXT_STYLE'] . "\" >";
+                                } else  $summary_string .= ">";
+                                $summary_string .= "<img src =\" " . $element_p["CONTEXT_IMG_LINK"] . "\" ";
+                                if (!empty($element_p["CONTEXT_IMG_STYLE"])) {
+                                    $summary_string .= "style = \" " . $element_p["CONTEXT_IMG_STYLE"] . "\" >";
+                                } else $summary_string .= " >";
+                                if (!empty($element_p["CONTEXT_P"])) $summary_string .= $element_p["CONTEXT_P"];
+                                $summary_string .= "</p>";
+                            } else {
+                                $summary_string .= "<p ";
+                                if (!empty($element_p['CONTEXT_P_ALIGN'])) {
+                                    $summary_string .= "align=\"";
+                                    $summary_string .= $element_p['CONTEXT_P_ALIGN'] . "\" >";
+                                    $summary_string .= $element_p["CONTEXT_P"] . "</p>";
+                                } elseif(!empty($element_p['CONTEXT_STYLE'])) {
+                                    $summary_string .= "style=\"";
+                                    $summary_string .= $element_p['CONTEXT_STYLE'] . "\" >";
+                                    $summary_string .= $element_p["CONTEXT_P"] . "</p>";
+                                } else {
+                                    $summary_string .= ">";
+                                    $summary_string .= $element_p["CONTEXT_P"] . "</p>";
+                                }
+                            }
                         }
+                        $data[$ELEMENT_NUMBER]["DETAIL"]["TEXT"] = $summary_string;
                     }
                 }
-                $data[$ELEMENT_NUMBER]["DETAIL"]["TEXT"] = $summary_string;
+
                 CModule::IncludeModule('iblock');
                 $el = new CIBlockElement;
                 $fields = array(

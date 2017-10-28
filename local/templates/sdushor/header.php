@@ -15,7 +15,7 @@
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/flickity.pkgd.min.js");
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/common.js");
      ?>
-    <link rel="shortcut icon" href=<?=SITE_TEMPLATE_PATH?>/img/favicon.ico">
+    <link rel="shortcut icon" href="<?=SITE_TEMPLATE_PATH?>/img/favicon.ico">
 </head>
 
 <body>
